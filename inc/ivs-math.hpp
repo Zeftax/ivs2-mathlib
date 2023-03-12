@@ -21,7 +21,7 @@
 
 	\returns	The sum of the two input numbers.
 */
-double add(double& p_addend_a, double& p_addend_b);
+double add(double p_addend_a, double p_addend_b);
 
 
 /*!	\brief	Difference of the two input numbers.
@@ -31,7 +31,7 @@ double add(double& p_addend_a, double& p_addend_b);
 
 	\returns	The difference of the two input numbers.
 */
-double subtract(double& p_minuend, double& p_subtrahend);
+double subtract(double p_minuend, double p_subtrahend);
 
 /*!	\brief	Multiplication of the two input numbers.
 
@@ -40,7 +40,7 @@ double subtract(double& p_minuend, double& p_subtrahend);
 
 	\returns	The product of the two input numbers.
 */
-double multiply(double& p_multiplier, double& p_multiplicand);
+double multiply(double p_multiplier, double p_multiplicand);
 
 /*!	\brief	Division of the two input numbers.
 
@@ -49,7 +49,7 @@ double multiply(double& p_multiplier, double& p_multiplicand);
 
 	\returns	The ratio of the two input numbers.
 */
-double divide(double& p_dividend, double& p_divisor);
+double divide(double p_dividend, double p_divisor);
 
 /*!	\brief	Exponentiation of the base to the exponent.
 
@@ -58,7 +58,7 @@ double divide(double& p_dividend, double& p_divisor);
 
 	\returns	The power of the base to the exponent.
 */
-double exponentiate(double& p_base, double& p_exponent);
+double exponentiate(double p_base, double p_exponent);
 
 /*! \brief Degreeth root of the radicand.
 
@@ -67,7 +67,7 @@ double exponentiate(double& p_base, double& p_exponent);
 
 	\returns	The degreeth root of the radicand.
 */
-double root(double& p_radicand, double& p_degree);
+double root(double p_radicand, double p_degree);
 
 /*!	\brief Logarithm of the anti-logarithm and the base.
 
@@ -76,7 +76,7 @@ double root(double& p_radicand, double& p_degree);
 
 	\returns	The logarithm of the anti-logarithm and the base.
 */
-double log(double& p_antilogarithm, double& p_base);
+double log(double p_antilogarithm, double p_base);
 
 /* \brief	Factorial
 
@@ -84,6 +84,5 @@ double log(double& p_antilogarithm, double& p_base);
 
    \returns	The factorial of the input number.
 */
-unsigned long facotrial(unsigned long& p_arg);
+unsigned long facotrial(unsigned long p_arg);
 #endif // IVS_MATH
-
