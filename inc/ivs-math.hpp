@@ -57,6 +57,8 @@ double divide(double p_dividend, double p_divisor);
 	\param	p_base	The exponent for this exponentiation.
 
 	\returns	The power of the base to the exponent.
+
+	\remark	0^0 Is defined as 1 in this implementation.
 */
 double exponentiate(double p_base, double p_exponent);
 
@@ -84,5 +86,5 @@ double log(double p_antilogarithm, double p_base);
 
    \returns	The factorial of the input number.
 */
-unsigned long facotrial(unsigned long p_arg);
+unsigned long factorial(unsigned long p_arg);
 #endif // IVS_MATH
