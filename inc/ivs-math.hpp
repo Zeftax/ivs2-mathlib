@@ -84,5 +84,5 @@ double log(double p_antilogarithm, double p_base);
 
    \returns	The factorial of the input number.
 */
-unsigned long facotrial(unsigned long p_arg);
+unsigned long factorial(unsigned long p_arg);
 #endif // IVS_MATH
