@@ -9,82 +9,81 @@
 */
 
 #include <stdexcept>
+#include <cmath>
 
 #include "gtest/gtest.h"
 #include "ivs-math.hpp"
 
 TEST(AddTest, BasicTests)
 {
-	ASSERT_EQ(add(0, 0), 0);
+	EXPECT_EQ(0, add(0, 0));
 
-	ASSERT_EQ(add(0, 1), 1);
-	ASSERT_EQ(add(1, 0), 1);
+	EXPECT_EQ(1, add(0, 1));
+	EXPECT_EQ(1, add(1, 0));
 
-	ASSERT_EQ(add(0, -1), -1);
-	ASSERT_EQ(add(-1, 0), -1);
+	EXPECT_EQ(-1, add(0, -1));
+	EXPECT_EQ(-1, add(-1, 0));
 
-	ASSERT_EQ(add(5, 10), 15);
-	ASSERT_EQ(add(-10, -5), -15);
+	EXPECT_EQ(15, add(5, 10));
+	EXPECT_EQ(-15, add(-10, -5));
 
-	ASSERT_EQ(add(7, 3.5), 10.5);
-	ASSERT_EQ(add(-45.5, 5), -40.5);
-	ASSERT_EQ(add(-12.5, -3.1), -15.6);
+	EXPECT_EQ(10.5, add(7, 3.5));
+	EXPECT_EQ(-40.5, add(-45.5, 5));
+	EXPECT_EQ(-15.6, add(-12.5, -3.1));
 
-	ASSERT_NE(add(1, 10.23456), 11);
-	ASSERT_NE(add(-10, -10), 10);
-	ASSERT_NE(add(-15, -15), -15);
+	EXPECT_NE(11, add(1, 10.23456));
+	EXPECT_NE(10, add(-10, -10));
+	EXPECT_NE(-15, add(-15, -15));
 };
 
 TEST(SubtractTest, BasicTests)
 {
-	ASSERT_EQ(subtract(0, 0), 0);
+	EXPECT_EQ(0, subtract(0, 0));
 
-	ASSERT_EQ(subtract(0, 1), -1);
-	ASSERT_EQ(subtract(1, 0), 1);
+	EXPECT_EQ(-1, subtract(0, 1));
+	EXPECT_EQ(1, subtract(1, 0));
 
-	ASSERT_EQ(subtract(0, -1), 1);
-	ASSERT_EQ(subtract(-1, 0), -1);
+	EXPECT_EQ(1, subtract(0, -1));
+	EXPECT_EQ(-1, subtract(-1, 0));
 
-	ASSERT_EQ(subtract(5, 10), -5);
-	ASSERT_EQ(subtract(-10, -5), -5);
+	EXPECT_EQ(-5, subtract(5, 10));
+	EXPECT_EQ(-5, subtract(-10, -5));
 
-	ASSERT_EQ(subtract(7, 3.5), 3.5);
-	ASSERT_EQ(subtract(-45.5, 5), -50.5);
-	ASSERT_EQ(subtract(-12.5, -3.1), -9.4);
+	EXPECT_EQ(3.5, subtract(7, 3.5));
+	EXPECT_EQ(-50.5, subtract(-45.5, 5));
+	EXPECT_EQ(-9.4, subtract(-12.5, -3.1));
 
-	ASSERT_NE(subtract(1, 10.23456), 9);
-	ASSERT_NE(subtract(-10, -10), 10);
-	ASSERT_NE(subtract(-15, -15), -15);
+	EXPECT_NE(9, subtract(1, 10.23456));
+	EXPECT_NE(10, subtract(-10, -10));
+	EXPECT_NE(-15, subtract(-15, -15));
 };
 
 TEST(MultiplyTest, BasicTests)
 {
-	ASSERT_EQ(multiply(0, 0), 0);
+	EXPECT_EQ(0, multiply(0, 0));
+	EXPECT_EQ(0, multiply(0, 1));
+	EXPECT_EQ(0, multiply(1, 0));
+	EXPECT_EQ(0, multiply(0, -1));
+	EXPECT_EQ(0, multiply(-1, 0));
 
-	ASSERT_EQ(multiply(0, 1), 0);
-	ASSERT_EQ(multiply(1, 0), 0);
+	EXPECT_EQ(50, multiply(5, 10));
 
-	ASSERT_EQ(multiply(0, -1), 0);
-	ASSERT_EQ(multiply(-1, 0), 0);
-
-	ASSERT_EQ(multiply(5, 10), 50);
-	ASSERT_EQ(multiply(7, 3.5), 24.5);
-
-	ASSERT_EQ(multiply(-45.5, 5), -227.5);
-	ASSERT_EQ(multiply(-12.5, -3.1), 38.75);
+	EXPECT_EQ(24.5, multiply(7, 3.5));
+	EXPECT_EQ(-227.5, multiply(-45.5, 5));
+	EXPECT_EQ(38.75, multiply(-12.5, -3.1));
 };
 
 TEST(DivideTest, BasicTests)
 {
-	ASSERT_EQ(divide(0, 1), 0);
+	EXPECT_EQ(0, divide(0, 1));
 
-	ASSERT_EQ(divide(0, -1), 0);
+	EXPECT_EQ(0, divide(0, -1));
 
-	ASSERT_EQ(divide(5, 10), 0.5);
-	ASSERT_EQ(divide(7, 3.5), 2);
+	EXPECT_EQ(0.5, divide(5, 10));
+	EXPECT_EQ(2, divide(7, 3.5));
 
-	ASSERT_EQ(divide(-45, 5), -9);
-	ASSERT_EQ(divide(-45, -5), 9);
+	EXPECT_EQ(-9, divide(-45, 5));
+	EXPECT_EQ(9, divide(-45, -5));
 };
 
 TEST(DivideTest, DivideByZero)
@@ -98,7 +97,7 @@ TEST(DivideTest, DivideByZero)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	caught = false;
 	try
@@ -109,7 +108,7 @@ TEST(DivideTest, DivideByZero)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	caught = false;
 	try
@@ -120,7 +119,7 @@ TEST(DivideTest, DivideByZero)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	caught = false;
 	try
@@ -131,24 +130,24 @@ TEST(DivideTest, DivideByZero)
 	{
 		caught = true;
 	}
-	ASSERT_FALSE(caught);
+	EXPECT_FALSE(caught);
 };
 
-TEST(ExponentiateTest, BasicTest)
+TEST(ExponentiateTest, BasicTests)
 {
-	ASSERT_EQ(exponentiate(1, 0), 1);
-	ASSERT_EQ(exponentiate(1, 10), 1);
-	ASSERT_EQ(exponentiate(-1, 10), 1);
-	ASSERT_EQ(exponentiate(-1, 9), -1);
-	ASSERT_EQ(exponentiate(0, 10), 0);
-	ASSERT_EQ(exponentiate(12, 0), 1);
-	ASSERT_EQ(exponentiate(-5, 2), 25);
-	ASSERT_EQ(exponentiate(-5, 3), -125);
-	ASSERT_EQ(exponentiate(2, -2), 0.25);
-	ASSERT_EQ(exponentiate(-2, 20), 1048576);
-	ASSERT_EQ(exponentiate(7.35, -88), 5.844053197e-77);
-	ASSERT_EQ(exponentiate(7.35, 0.88), 5.785392902);
-	ASSERT_EQ(exponentiate(7.35, -0.88), 0.1728491076);
+	EXPECT_EQ(1, exponentiate(1, 0));
+	EXPECT_EQ(1, exponentiate(1, 10));
+	EXPECT_EQ(1, exponentiate(-1, 10));
+	EXPECT_EQ(-1, exponentiate(-1, 9));
+	EXPECT_EQ(0, exponentiate(0, 10));
+	EXPECT_EQ(1, exponentiate(12, 0));
+	EXPECT_EQ(25, exponentiate(-5, 2));
+	EXPECT_EQ(-125, exponentiate(-5, 3));
+	EXPECT_EQ(0.25, exponentiate(2, -2));
+	EXPECT_EQ(1048576, exponentiate(-2, 20));
+	EXPECT_EQ(5.844053197e-77, exponentiate(7.35, -88));
+	EXPECT_EQ(5.785392902, exponentiate(7.35, 0.88));
+	EXPECT_EQ(0.1728491076, exponentiate(7.35, -0.88));
 };
 
 TEST(ExponentiateTest, NotANumber)
@@ -162,7 +161,7 @@ TEST(ExponentiateTest, NotANumber)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	caught = false;
 	try
@@ -173,7 +172,7 @@ TEST(ExponentiateTest, NotANumber)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	caught = false;
 	try
@@ -184,20 +183,20 @@ TEST(ExponentiateTest, NotANumber)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 };
 
 TEST(RootTest, BasicTests)
 {
-	ASSERT_EQ(root(0, 10), 0);
-	ASSERT_EQ(root(0, 0.5), 0);
-	ASSERT_EQ(root(4, 2), 2);
-	ASSERT_EQ(root(4, -2), 0.5);
-	ASSERT_EQ(root(7, 3.5), 1.743639034);
-	ASSERT_EQ(root(-45.5, 5), -2.145864422);
-	ASSERT_EQ(root(45.545, 5), 2.146288711);
-	ASSERT_EQ(root(12.5, -3.234), 0.4579514249);
-	ASSERT_EQ(root(0.25, 0.02), 7.888609052e-31);
+	EXPECT_EQ(0, root(0, 10));
+	EXPECT_EQ(0, root(0, 0.5));
+	EXPECT_EQ(2, root(4, 2));
+	EXPECT_EQ(0.5, root(4, -2));
+	EXPECT_EQ(1.743639034, root(7, 3.5));
+	EXPECT_EQ(-2.145864422, root(-45.5, 5));
+	EXPECT_EQ(2.146288711, root(45.545, 5));
+	EXPECT_EQ(0.4579514249, root(12.5, -3.234));
+	EXPECT_EQ(7.888609052e-31, root(0.25, 0.02));
 };
 
 TEST(RootTest, NotANumber)
@@ -211,7 +210,7 @@ TEST(RootTest, NotANumber)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	caught = false;
 	try
@@ -222,7 +221,7 @@ TEST(RootTest, NotANumber)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	caught = false;
 	try
@@ -233,7 +232,7 @@ TEST(RootTest, NotANumber)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	// caught = false;
 	// try
@@ -244,7 +243,7 @@ TEST(RootTest, NotANumber)
 	// {
 	// 	caught = true;
 	// }
-	// ASSERT_TRUE(caught);
+	// EXPECT_TRUE(caught);
 };
 
 TEST(RootTest, DivideByZero)
@@ -258,7 +257,7 @@ TEST(RootTest, DivideByZero)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	caught = false;
 	try
@@ -269,11 +268,21 @@ TEST(RootTest, DivideByZero)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 };
 
-TEST(LogTest, BasicTest){
-	// LOG
+TEST(LogTest, BasicTests){
+	EXPECT_EQ(0, log(1,0));
+	EXPECT_EQ(1, log(10,10));
+	EXPECT_EQ(2, log(64,8));
+	EXPECT_EQ(6, log(46656,6));
+
+	EXPECT_NEAR(-1.609437912434e+00, log(0.2,M_E), 1e-9);
+	EXPECT_NEAR(4.306765580734e-01, log(2,5), 1e-9);
+	EXPECT_NEAR(1.318065436796e+00, log(15.5,8), 1e-9);
+	EXPECT_NEAR(2.321928094887e+00, log(0.2,0.5), 1e-9);
+	EXPECT_NEAR(5.107922458136e+01, log(987654321,1.5), 1e-9);
+	
 };
 
 // NEFUNGUJE
@@ -288,7 +297,7 @@ TEST(LogTest, NotANumber)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	caught = false;
 	try
@@ -299,7 +308,7 @@ TEST(LogTest, NotANumber)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	caught = false;
 	try
@@ -310,7 +319,7 @@ TEST(LogTest, NotANumber)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	caught = false;
 	try
@@ -321,14 +330,14 @@ TEST(LogTest, NotANumber)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 };
 
 TEST(FactorialTest, BasicTests)
 {
-	ASSERT_EQ(factorial(0), 1);
-	ASSERT_EQ(factorial(3), 6);
-	ASSERT_EQ(factorial(20), 2.432902008e18);
+	EXPECT_EQ(1, factorial(0));
+	EXPECT_EQ(6, factorial(3));
+	EXPECT_EQ(2.432902008e18, factorial(20));
 };
 
 TEST(FactorialTest, OutOfRange)
@@ -342,7 +351,7 @@ TEST(FactorialTest, OutOfRange)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	caught = false;
 	try
@@ -353,7 +362,7 @@ TEST(FactorialTest, OutOfRange)
 	{
 		caught = true;
 	}
-	ASSERT_TRUE(caught);
+	EXPECT_TRUE(caught);
 
 	// caught = false;
 	// try
@@ -364,5 +373,5 @@ TEST(FactorialTest, OutOfRange)
 	// {
 	// 	caught = true;
 	// }
-	// ASSERT_TRUE(caught);
+	// EXPECT_TRUE(caught);
 }
