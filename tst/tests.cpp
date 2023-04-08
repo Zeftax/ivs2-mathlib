@@ -297,5 +297,5 @@ TEST(FactorialTest, BasicTests)
 {
 	EXPECT_EQ(1, factorial(0));
 	EXPECT_EQ(6, factorial(3));
-	EXPECT_EQ(2.432902008e18, factorial(20));
+	EXPECT_EQ(2432902008176640000, factorial(20));
 };
