@@ -44,11 +44,11 @@ double exponentiate(double p_base, double p_exponent)
 
 double root(double p_radicand, double p_degree)
 {
-	return exponeniate(p_radicand, 1 / p_degree);
+	return exponentiate(p_radicand, 1 / p_degree);
 }
 
 double log(double p_antilogarithm, double p_base)
 {
 	// base ^ log = antilog
-	return root(antilog, base);
+	return root(p_antilogarithm, p_base);
 }
