@@ -59,8 +59,9 @@ double divide(double p_dividend, double p_divisor);
 	\returns	The power of the base to the exponent.
 
 	\remark	0^0 Is defined as 1 in this implementation.
+	\remark Only natural numbers can be exponents
 */
-double exponentiate(double p_base, double p_exponent);
+double exponentiate(double p_base, unsigned long p_exponent);
 
 /*! \brief Degreeth root of the radicand.
 
