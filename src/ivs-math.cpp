@@ -52,3 +52,15 @@ double log(double p_antilogarithm, double p_base)
 	// base ^ log = antilog
 	return root(p_antilogarithm, p_base);
 }
+
+unsigned long factorial(unsigned long p_arg)
+{
+	if(p_arg == 2)
+	{
+		return 2;
+	}
+	else
+	{
+		return p_arg * factorial(p_arg - 1);
+	}
+}
