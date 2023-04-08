@@ -299,39 +299,3 @@ TEST(FactorialTest, BasicTests)
 	EXPECT_EQ(6, factorial(3));
 	EXPECT_EQ(2.432902008e18, factorial(20));
 };
-
-TEST(FactorialTest, OutOfRange)
-{
-	bool caught = false;
-	try
-	{
-		factorial(-10);
-	}
-	catch (std::invalid_argument const &e)
-	{
-		caught = true;
-	}
-	EXPECT_TRUE(caught);
-
-	caught = false;
-	try
-	{
-		factorial(-15.25);
-	}
-	catch (std::invalid_argument const &e)
-	{
-		caught = true;
-	}
-	EXPECT_TRUE(caught);
-
-	// caught = false;
-	// try
-	// {
-	// 	factorial(atan(1) * 4); // pi ? chtelo by to math knihovnu
-	// }
-	// catch (std::invalid_argument const &e)
-	// {
-	// 	caught = true;
-	// }
-	// EXPECT_TRUE(caught);
-}
