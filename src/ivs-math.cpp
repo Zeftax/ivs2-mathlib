@@ -49,15 +49,14 @@ double root(double p_radicand, double p_degree)
 
 double log(double p_antilogarithm, double p_base)
 {
-	// base ^ log = antilog
 	return root(p_antilogarithm, p_base);
 }
 
 unsigned long factorial(unsigned long p_arg)
 {
-	if(p_arg == 2)
+	if(p_arg == 0)
 	{
-		return 2;
+		return 1;
 	}
 	else
 	{
