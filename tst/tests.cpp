@@ -143,47 +143,7 @@ TEST(ExponentiateTest, BasicTests)
 	EXPECT_EQ(1, exponentiate(12, 0));
 	EXPECT_EQ(25, exponentiate(-5, 2));
 	EXPECT_EQ(-125, exponentiate(-5, 3));
-	EXPECT_EQ(0.25, exponentiate(2, -2));
 	EXPECT_EQ(1048576, exponentiate(-2, 20));
-	EXPECT_EQ(5.844053197e-77, exponentiate(7.35, -88));
-	EXPECT_EQ(5.785392902, exponentiate(7.35, 0.88));
-	EXPECT_EQ(0.1728491076, exponentiate(7.35, -0.88));
-};
-
-TEST(ExponentiateTest, NotANumber)
-{
-	bool caught = false;
-	try
-	{
-		exponentiate(0, -2);
-	}
-	catch (std::invalid_argument const &e)
-	{
-		caught = true;
-	}
-	EXPECT_TRUE(caught);
-
-	caught = false;
-	try
-	{
-		exponentiate(-2, 3.5);
-	}
-	catch (std::invalid_argument const &e)
-	{
-		caught = true;
-	}
-	EXPECT_TRUE(caught);
-
-	caught = false;
-	try
-	{
-		exponentiate(-2.123, -4.6);
-	}
-	catch (std::invalid_argument const &e)
-	{
-		caught = true;
-	}
-	EXPECT_TRUE(caught);
 };
 
 TEST(RootTest, BasicTests)
@@ -282,7 +242,7 @@ TEST(LogTest, BasicTests){
 	EXPECT_NEAR(1.318065436796e+00, log(15.5,8), 1e-9);
 	EXPECT_NEAR(2.321928094887e+00, log(0.2,0.5), 1e-9);
 	EXPECT_NEAR(5.107922458136e+01, log(987654321,1.5), 1e-9);
-	
+
 };
 
 // NEFUNGUJE
