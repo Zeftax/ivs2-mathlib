@@ -26,7 +26,7 @@ double divide(double p_dividend, double p_divisor)
 	return p_dividend / p_divisor;
 }
 
-double exponentiate(double p_base, double p_exponent)
+double exponentiate(double p_base, unsigned long p_exponent)
 {
 	if(p_exponent < 0)
 	{
