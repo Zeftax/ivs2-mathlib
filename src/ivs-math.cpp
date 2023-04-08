@@ -41,3 +41,8 @@ double exponentiate(double p_base, double p_exponent)
 		return p_base * exponentiate(p_base, p_exponent - 1);
 	}
 }
+
+double root(double p_radicand, double p_degree)
+{
+	return exponeniate(p_radicand, 1 / p_degree);
+}
