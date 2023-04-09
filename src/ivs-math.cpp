@@ -49,6 +49,18 @@ double root(double p_radicand, double p_degree)
 
 double log(double p_antilogarithm, double p_base)
 {
+	if(p_base <= 0)
+	{
+		throw std::invalid_argument("The base has to be a positive number.");
+	}
+	if(p_base == 1)
+	{
+		throw std::invalid_argument("The base cannot be 1.");
+	}
+	if(p_antilogarithm <= 0)
+	{
+		throw std::invalid_argument("The anti logarithm has to be positive.");
+	}
 	return root(p_antilogarithm, p_base);
 }
 
