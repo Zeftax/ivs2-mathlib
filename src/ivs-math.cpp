@@ -26,7 +26,7 @@ double divide(double p_dividend, double p_divisor)
 	return p_dividend / p_divisor;
 }
 
-double exponentiate(double p_base, unsigned long p_exponent)
+double exponentiate(double p_base, double p_exponent)
 {
 	if(p_exponent < 0)
 	{
@@ -49,7 +49,7 @@ double root(double p_radicand, double p_degree)
 
 double log(double p_antilogarithm, double p_base)
 {
-	if(p_base <= 0)
+	if(p_base < 0)
 	{
 		throw std::invalid_argument("The base has to be a positive number.");
 	}
@@ -61,6 +61,7 @@ double log(double p_antilogarithm, double p_base)
 	{
 		throw std::invalid_argument("The anti logarithm has to be positive.");
 	}
+
 	return root(p_antilogarithm, p_base);
 }
 
