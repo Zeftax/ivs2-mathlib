@@ -30,15 +30,19 @@ double exponentiate(double p_base, double p_exponent)
 {
 	if(p_exponent < 0)
 	{
-		throw std::invalid_argument("The exponent has to be a natural number.");
+		return 1.0 / exponentiate(p_base, -p_exponent);
 	}
-	else if(p_exponent == 0)
+
+	double result = 1;
+
+	while(p_exponent)
 	{
-		return 1;
-	}
-	else
-	{
-		return p_base * exponentiate(p_base, p_exponent - 1);
+		if(p_exponent & 1)
+		{
+			result = result * p_base;
+		}
+		p_base = p_base * p_base;
+		b = b >> 1;
 	}
 }
 
