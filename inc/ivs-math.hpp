@@ -58,8 +58,7 @@ double divide(double p_dividend, double p_divisor);
 
 	\returns	The power of the base to the exponent.
 
-	\remark	0^0 Is defined as 1 in this implementation.
-	\remark Only natural numbers can be exponents
+	\author	[uday6670](https://github.com/uday6670)
 */
 double exponentiate(double p_base, unsigned long p_exponent);
 

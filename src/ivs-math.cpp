@@ -26,24 +26,11 @@ double divide(double p_dividend, double p_divisor)
 	return p_dividend / p_divisor;
 }
 
-double exponentiate(double p_base, double p_exponent)
+double exponentiate(double p_base, unsigned long p_exponent)
 {
-	if(p_exponent < 0)
-	{
-		return 1.0 / exponentiate(p_base, -p_exponent);
-	}
-
-	double result = 1;
-
-	while(p_exponent)
-	{
-		if(p_exponent & 1)
-		{
-			result = result * p_base;
-		}
-		p_base = p_base * p_base;
-		b = b >> 1;
-	}
+	if(exponent == 0)
+		return 1;
+	return p_base * exponentiate(p_base, p_exponent - 1);
 }
 
 double root(double p_radicand, double p_degree)
