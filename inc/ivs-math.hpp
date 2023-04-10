@@ -57,8 +57,6 @@ double divide(double p_dividend, double p_divisor);
 	\param	p_base	The exponent for this exponentiation.
 
 	\returns	The power of the base to the exponent.
-
-	\author	[uday6670](https://github.com/uday6670)
 */
 double exponentiate(double p_base, unsigned long p_exponent);
 
