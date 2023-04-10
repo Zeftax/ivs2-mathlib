@@ -14,6 +14,8 @@
 #include "gtest/gtest.h"
 #include "ivs-math.hpp"
 
+using namespace ivsm;
+
 TEST(AddTest, BasicTests)
 {
 	EXPECT_EQ(0, add(0, 0));
