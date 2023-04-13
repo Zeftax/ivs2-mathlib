@@ -34,14 +34,20 @@ namespace ivsm {
 
     double root(double p_radicand, double p_degree)
     {
+		int negativeModifier = 1;
         if(p_degree == 0)
         {
             throw std::invalid_argument("The degree cannot be 0.");
         }
-		if(p_radicand < 0 && fmod(p_degree, 2) != 1)
+		if(p_radicand < 0)
 		{
-			throw std::invalid_argument("If radicand is negative, the base has "
-					"to be an odd integer");
+			negativeModifier = -1;
+			p_radicand *= -1;
+			if(fmod(p_degree, 2) != 1)
+			{
+				throw std::invalid_argument("If radicand is negative, the "
+					"base has to be an odd integer");
+			}
 		}
 		if(p_radicand == 0 && p_degree < 0)
 		{
@@ -49,7 +55,7 @@ namespace ivsm {
 					"the definition... or so I think.");
 		}
 
-		return pow(p_radicand, 1 / p_degree);
+		return pow(p_radicand, 1 / p_degree) * negativeModifier;
     }
 
     double log(double p_antilogarithm, double p_base)
