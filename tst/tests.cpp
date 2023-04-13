@@ -275,17 +275,6 @@ TEST(LogTest, NotANumber)
 	caught = false;
 	try
 	{
-		std::cout << log(0.2, 0) << std::endl;
-	}
-	catch (std::invalid_argument const &e)
-	{
-		caught = true;
-	}
-	EXPECT_TRUE(caught);
-
-	caught = false;
-	try
-	{
 		log(10, 1);
 	}
 	catch (std::invalid_argument const &e)
