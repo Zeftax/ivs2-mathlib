@@ -34,6 +34,11 @@ namespace ivsm {
 
     double root(double p_radicand, double p_degree)
     {
+        if(p_degree == 0)
+        {
+            throw std::invalid_argument("The degree cannot be 0.");
+        }
+
 		return pow(p_radicand, 1 / p_degree);
     }
 

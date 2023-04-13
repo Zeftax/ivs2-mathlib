@@ -150,15 +150,15 @@ TEST(ExponentiateTest, BasicTests)
 
 TEST(RootTest, BasicTests)
 {
-	EXPECT_EQ(0, root(0, 10));
-	EXPECT_EQ(0, root(0, 0.5));
-	EXPECT_EQ(2, root(4, 2));
-	EXPECT_EQ(0.5, root(4, -2));
-	EXPECT_EQ(1.743639034, root(7, 3.5));
-	EXPECT_EQ(-2.145864422, root(-45.5, 5));
-	EXPECT_EQ(2.146288711, root(45.545, 5));
-	EXPECT_EQ(0.4579514249, root(12.5, -3.234));
-	EXPECT_EQ(7.888609052e-31, root(0.25, 0.02));
+	EXPECT_NEAR(0, root(0, 10), 1e-9);
+	EXPECT_NEAR(0, root(0, 0.5), 1e-9);
+	EXPECT_NEAR(2, root(4, 2), 1e-9);
+	EXPECT_NEAR(0.5, root(4, -2), 1e-9);
+	EXPECT_NEAR(1.743639034, root(7, 3.5), 1e-9);
+	EXPECT_NEAR(-2.145864422, root(-45.5, 5), 1e-9);
+	EXPECT_NEAR(2.146288711, root(45.545, 5), 1e-9);
+	EXPECT_NEAR(0.4579514249, root(12.5, -3.234), 1e-9);
+	EXPECT_NEAR(7.888609052e-31, root(0.25, 0.02), 1e-9);
 };
 
 TEST(RootTest, NotANumber)
