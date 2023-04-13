@@ -38,11 +38,6 @@ namespace ivsm {
         {
             throw std::invalid_argument("The degree cannot be 0.");
         }
-		if(p_radicand < 0 && p_radicand != (long) p_radicand)
-		{
-			throw std::invalid_argument("In the negaive, we only support "
-					"integer radicands");
-		}
 
 		return pow(p_radicand, 1 / p_degree);
     }
