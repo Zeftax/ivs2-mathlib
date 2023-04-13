@@ -54,7 +54,7 @@ namespace ivsm {
 					"The anti logarithm has to be positive.");
         }
 
-        return log(p_antilogarithm) / log(p_base);
+        return log2(p_antilogarithm) / log2(p_base);
     }
 
     unsigned long factorial(unsigned long p_arg)
