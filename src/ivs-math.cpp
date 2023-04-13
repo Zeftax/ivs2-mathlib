@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <cmath>
 
 namespace ivsm {
 
@@ -28,21 +29,20 @@ namespace ivsm {
 
     double exponentiate(double p_base, unsigned long p_exponent)
     {
-        if(p_exponent == 0)
-            return 1;
-        return p_base * exponentiate(p_base, p_exponent - 1);
+        return pow(p_base, p_exponent);
     }
 
     double root(double p_radicand, double p_degree)
     {
-        return exponentiate(p_radicand, 1 / p_degree);
+		return pow(p_radicand, 1 / p_degree);
     }
 
     double log(double p_antilogarithm, double p_base)
     {
         if(p_base < 0)
         {
-            throw std::invalid_argument("The base has to be a positive number.");
+            throw std::invalid_argument(
+					"The base has to be a positive number.");
         }
         if(p_base == 1)
         {
@@ -50,10 +50,11 @@ namespace ivsm {
         }
         if(p_antilogarithm <= 0)
         {
-            throw std::invalid_argument("The anti logarithm has to be positive.");
+            throw std::invalid_argument(
+					"The anti logarithm has to be positive.");
         }
 
-        return root(p_antilogarithm, p_base);
+        return log(p_antilogarithm) / log(p_base);
     }
 
     unsigned long factorial(unsigned long p_arg)
