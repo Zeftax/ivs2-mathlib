@@ -38,6 +38,16 @@ namespace ivsm {
         {
             throw std::invalid_argument("The degree cannot be 0.");
         }
+		if(p_radicand < 0 && fmod(p_degree, 2) != 1)
+		{
+			throw std::invalid_argument("If radicand is negative, the base has "
+					"to be an odd integer");
+		}
+		if(p_radicand == 0 && p_degree < 0)
+		{
+			throw std::invalid_argument("I honestly have no idea, but it is "
+					"the definition... or so I think.");
+		}
 
 		return pow(p_radicand, 1 / p_degree);
     }
