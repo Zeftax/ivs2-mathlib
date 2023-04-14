@@ -29,6 +29,16 @@ namespace ivsm {
 
     double exponentiate(double p_base, double p_exponent)
     {
+		if(p_base == 0 && p_exponent < 0)
+		{
+			throw std::invalid_argument("Cannot exponentiate 0 to a negative "
+					"exponent");
+		}
+		if(p_base < 0 && p_exponent != (long) p_exponent)
+		{
+			throw std::invalid_argument("Negative bases need to have integer "
+					"exponents.");
+		}
         return pow(p_base, p_exponent);
     }
 
