@@ -60,7 +60,7 @@ namespace ivsm {
 
       \returns	The power of the base to the exponent.
       */
-    double exponentiate(double p_base, unsigned long p_exponent);
+    double exponentiate(double p_base, double p_exponent);
 
     /*! \brief Degreeth root of the radicand.
 

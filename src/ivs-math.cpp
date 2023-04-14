@@ -27,7 +27,7 @@ namespace ivsm {
         return p_dividend / p_divisor;
     }
 
-    double exponentiate(double p_base, unsigned long p_exponent)
+    double exponentiate(double p_base, double p_exponent)
     {
         return pow(p_base, p_exponent);
     }

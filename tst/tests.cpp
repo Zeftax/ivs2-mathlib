@@ -137,15 +137,55 @@ TEST(DivideTest, DivideByZero)
 
 TEST(ExponentiateTest, BasicTests)
 {
-	EXPECT_EQ(1, exponentiate(1, 0));
-	EXPECT_EQ(1, exponentiate(1, 10));
-	EXPECT_EQ(1, exponentiate(-1, 10));
-	EXPECT_EQ(-1, exponentiate(-1, 9));
-	EXPECT_EQ(0, exponentiate(0, 10));
-	EXPECT_EQ(1, exponentiate(12, 0));
-	EXPECT_EQ(25, exponentiate(-5, 2));
-	EXPECT_EQ(-125, exponentiate(-5, 3));
-	EXPECT_EQ(1048576, exponentiate(-2, 20));
+	EXPECT_NEAR(1, exponentiate(1, 0), 1e-9);
+	EXPECT_NEAR(1, exponentiate(1, 10), 1e-9);
+	EXPECT_NEAR(1, exponentiate(-1, 10), 1e-9);
+	EXPECT_NEAR(-1, exponentiate(-1, 9), 1e-9);
+	EXPECT_NEAR(0, exponentiate(0, 10), 1e-9);
+	EXPECT_NEAR(1, exponentiate(12, 0), 1e-9);
+	EXPECT_NEAR(25, exponentiate(-5, 2), 1e-9);
+	EXPECT_NEAR(-125, exponentiate(-5, 3), 1e-9);
+	EXPECT_NEAR(0.25, exponentiate(2, -2), 1e-9);
+	EXPECT_NEAR(1048576, exponentiate(-2, 20), 1e-9);
+	EXPECT_NEAR(5.844053197e-77, exponentiate(7.35, -88), 1e-9);
+	EXPECT_NEAR(5.785392902, exponentiate(7.35, 0.88), 1e-9);
+	EXPECT_NEAR(0.1728491076, exponentiate(7.35, -0.88), 1e-9);
+};
+
+TEST(ExponentiateTest, NotANumber)
+{
+	bool caught = false;
+	try
+	{
+		exponentiate(0, -2);
+	}
+	catch (std::invalid_argument const &e)
+	{
+		caught = true;
+	}
+	EXPECT_TRUE(caught);
+
+	caught = false;
+	try
+	{
+		exponentiate(-2, 3.5);
+	}
+	catch (std::invalid_argument const &e)
+	{
+		caught = true;
+	}
+	EXPECT_TRUE(caught);
+
+	caught = false;
+	try
+	{
+		exponentiate(-2.123, -4.6);
+	}
+	catch (std::invalid_argument const &e)
+	{
+		caught = true;
+	}
+	EXPECT_TRUE(caught);
 };
 
 TEST(RootTest, BasicTests)
