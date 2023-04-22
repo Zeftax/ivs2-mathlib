@@ -48,29 +48,36 @@ target_include_directories(${PROJECT_NAME}
 set(public_headers inc/ivs-math.hpp)
 # cmake modules location
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-include(Install)
 
+# install library and include googletest only if it is top level project
+# e.g. don't install unnecessary stuff to projects that include this library
+if (PROJECT_IS_TOP_LEVEL)
+    message(STATUS "This project is a top-level one")
 
-# == GOOGLETEST ==
-include(FetchContent)
-FetchContent_Declare(
+    include(Install)
+
+    # == GOOGLETEST ==
+    include(FetchContent)
+    FetchContent_Declare(
         googletest
         URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
-)
-# For Windows: Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-option(INSTALL_GTEST OFF) # prevent including googletest in install
-FetchContent_MakeAvailable(googletest)
+        )
+    # For Windows: Prevent overriding the parent project's compiler/linker settings
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+    option(INSTALL_GTEST OFF) # prevent including googletest in install
+    FetchContent_MakeAvailable(googletest)
 
-# Test targets
-enable_testing()
+    # Test targets
+    enable_testing()
 
-include(GoogleTest)
+    include(GoogleTest)
 
-include_directories("inc")
-include_directories("tst")
-include_directories("src")
+    include_directories("inc")
+    include_directories("tst")
+    include_directories("src")
 
-add_executable(tests tst/tests.cpp src/ivs-math.cpp)
-target_link_libraries(tests gtest_main gmock_main)
-gtest_discover_tests(tests)
+    add_executable(tests tst/tests.cpp src/ivs-math.cpp)
+    target_link_libraries(tests gtest_main gmock_main)
+    gtest_discover_tests(tests)
+endif()
+
