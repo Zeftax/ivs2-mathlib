@@ -1,5 +1,5 @@
 /*!
-	\file ivs-math.h
+	\file ivs-math.hpp
 	\brief A collection of a select few math functions.
 	\author Zdenek Borovec
 	\author Tomas Krejci
