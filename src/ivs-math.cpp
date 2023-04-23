@@ -1,3 +1,15 @@
+/**
+ * @file ivs-math.cpp
+ *
+ * @author Zdeněk Borovec <xborov08@vutbr.cz>
+ * @author Tomáš Krejčí <xkrejc84@vutbr.cz>
+ * @author Jan Lozrt <xlozrt00@vutbr.cz>
+ * @author Jakub Mitrenga <xmitre07@vutbr.cz>
+ *
+ * @brief A implementation of some math functions
+ * @copyright GNU GPLv3
+ */
+
 #include <stdexcept>
 #include <cmath>
 

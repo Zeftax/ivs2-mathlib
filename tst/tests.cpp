@@ -1,12 +1,14 @@
-/*!
-	\file tests.cpp
-	\brief A collection of test for the math functions.
-	\author Zdenek Borovec
-	\author Tomas Krejci
-	\author Jan Lozrt
-	\author Jakub Mitrenga
-	\copyright GNU GPLv3
-*/
+/**
+ * @file tests.cpp
+ *
+ * @author Zdeněk Borovec <xborov08@vutbr.cz>
+ * @author Tomáš Krejčí <xkrejc84@vutbr.cz>
+ * @author Jan Lozrt <xlozrt00@vutbr.cz>
+ * @author Jakub Mitrenga <xmitre07@vutbr.cz>
+ *
+ * @brief A collection of test for the math functions
+ * @copyright GNU GPLv3
+ */
 
 #include <stdexcept>
 #include <cmath>
